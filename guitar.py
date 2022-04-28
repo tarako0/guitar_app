@@ -47,21 +47,10 @@ def all_scale():
         scale[mel[i]+'m3']={mel[i],mel[i+2],mel[i+3],mel[i+5],mel[i+7],mel[i+9],mel[i+11]} #melodic
         scale[mel[i]+'Mpenta']={mel[i],mel[i+2],mel[i+4],mel[i+7],mel[i+9]}
         scale[mel[i]+'mpenta']={mel[i],mel[i+3],mel[i+5],mel[i+7],mel[i+10]}
-        """
-        scale[mel[i]+'dorian']={mel[i],mel[i+2],mel[i+3],mel[i+5],mel[i+7],mel[i+9],mel[i+10]}
-        scale[mel[i]+'Phrygian']={mel[i],mel[i+1],mel[i+3],mel[i+5],mel[i+7],mel[i+8],mel[i+10]}
-        """
     return scale
-"""
-print(all_code()["Cadd9"])
- 
-for i in range(len(shiban)):
-    for j in range(len(shiban[0])):
-        if shiban[i][j] in all_code()["Cadd9"]:
-            print(i,j) #[x,y]=[30*j+40,30*i+40]の位置にshiban[i][j]を入れる
- 
-print(shiban[0][2])
-"""
+
+
+#tkinter
 import tkinter
 from tkinter import font
  
@@ -69,13 +58,7 @@ root = tkinter.Tk()
 root.title("guitar starter")
 root.geometry("1700x500+150+150")
 C = tkinter.Canvas(root, height=500, width=1700)
-"""
-canvas = tkinter.Canvas(root)
-for j2 in range(4):
-    canvas.create_oval(10, 10 , 25, 25, fill="white", tag="oval")
-    canvas.place(x=185+60*j2+10, y=50*2.5+40)
-"""
- 
+
 def dosu(root,x):
     Rdic1={'C':0,'C#':1,'D':2,'D#':3,'E':4,'F':5,'F#':6,'G':7,'G#':8,'A':9,'A#':10,'B':11}
     Rdic2={0:'R',1:'b9',2:'9',3:'m3',4:'M3',5:'p4',6:'b5',7:'p5',8:'aug',9:'6',10:'7',11:'M7'}
@@ -90,7 +73,6 @@ def dosu(root,x):
             Rdic_re[i]=Rdic2[Rdic1[i]-root_number+12]
     return Rdic_re[x]
  
-#111111111111111111111111111111111111111111111111111111111111111111111111111
 def btn_click():#code
     code_name=txt.get()
     if len(code_name)>=2:
@@ -117,8 +99,7 @@ def btn_click():#code
                 labels[i][j].place(x=60*j+140, y=50*i+40)
             C.create_line(60*j+185, 30, 60*j+185, 340, fill='black')
             C.create_line(185, 50*i+55, 60*23+185, 50*i+55, fill='black')
-#11111111111111111111111111111111111111111111111111111111111111111111111111
-#11111111111111111111111111111111111111111111111111111111111111111111111111
+
 def btn1_2_click():
     code_name=txt.get()
     if len(code_name)>=2:
@@ -146,8 +127,6 @@ def btn1_2_click():
             C.create_line(60*j+185, 30, 60*j+185, 340, fill='black')
             C.create_line(185, 50*i+55, 60*23+185, 50*i+55, fill='black')
  
-#11111111111111111111111111111111111111111111111111111111111111111111111111
-#22222222222222222222222222222222222222222222222222222222222222222222222222
 def btn2_click():#scale
     scale_name=txt2.get()
     if len(scale_name)>=2:
@@ -174,9 +153,7 @@ def btn2_click():#scale
                 labels[i][j].place(x=60*j+140, y=50*i+40)
             C.create_line(60*j+185, 30, 60*j+185, 340, fill='black')
             C.create_line(185, 50*i+55, 60*23+185, 50*i+55, fill='black')
-#2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
  
-#22222222222222222222222222222222222222222222222222222222222222222222222222
 def btn3_click():#scale_dosu
     scale_name=txt2.get()
     if len(scale_name)>=2:
@@ -203,22 +180,21 @@ def btn3_click():#scale_dosu
                 labels[i][j].place(x=60*j+140, y=50*i+40)
             C.create_line(60*j+185, 30, 60*j+185, 340, fill='black')
             C.create_line(185, 50*i+55, 60*23+185, 50*i+55, fill='black')
-#2222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
  
-#1
+
 txt = tkinter.Entry(width=10)
 txt.place(x=150, y=400)
 btn = tkinter.Button(root, text='コード表示', command=btn_click)
 btn.place(x=240, y=400)
-#1
+
 btn1_2=tkinter.Button(root, text='コード度数表示', command=btn1_2_click)
 btn1_2.place(x=240,y=440)
-#2
+
 txt2 = tkinter.Entry(width=10)
 txt2.place(x=350, y=400)
 btn2 = tkinter.Button(root, text='スケール表示', command=btn2_click)
 btn2.place(x=440, y=400)
-#2
+
 btn2 = tkinter.Button(root, text='スケール度数表示', command=btn3_click)
 btn2.place(x=440, y=440)
  
